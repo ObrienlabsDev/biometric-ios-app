@@ -13,9 +13,23 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("sending sensor data")
         }
-        .padding()
+        .onAppear {
+            // This code runs when the view first appears on screen.
+            // example
+            let sampleData = SensorData(
+                deviceId: "sensor-alpha-001",
+                temperature: 23.5,
+                humidity: 45.2,
+                timestamp: Date()
+            )
+            //.padding()
+            
+            Task {
+                await sendSensorData(data: sampleData)
+            }
+        }
     }
 }
 

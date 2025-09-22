@@ -7,7 +7,6 @@
 
 import Foundation
 
-// 1. Define a struct for your sensor data
 struct SensorData: Codable {
     let deviceId: String
     let temperature: Double
@@ -15,14 +14,6 @@ struct SensorData: Codable {
     let timestamp: Date
 }
 
-
-// --- Example Usage ---
-let sampleData = SensorData(
-    deviceId: "sensor-alpha-001",
-    temperature: 23.5,
-    humidity: 45.2,
-    timestamp: Date()
-)
 
 // 2. Create a function to send the data
 func sendSensorData(data: SensorData) async {
